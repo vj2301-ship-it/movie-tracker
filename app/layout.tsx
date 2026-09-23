@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import WatchlistLink from "@/components/WatchlistLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               US Release Tracker
             </Link>
             <span className="hidden text-sm text-muted sm:inline">Hollywood releases in US theaters</span>
+            <WatchlistLink />
           </div>
         </header>
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6">{children}</main>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReviewList from "@/components/ReviewList";
 import SetupNotice from "@/components/SetupNotice";
+import { WatchButton } from "@/components/WatchButton";
 import { formatDate } from "@/lib/filters";
 import {
   getMovieDetails,
@@ -92,6 +93,14 @@ export default async function MoviePage({ params }: PageProps<"/movie/[id]">) {
             </div>
             {movie.overview && <p className="max-w-3xl leading-relaxed">{movie.overview}</p>}
             <div className="flex flex-wrap gap-3 text-sm">
+              <WatchButton
+                movie={{
+                  id: movie.id,
+                  title: movie.title,
+                  poster_path: movie.poster_path,
+                  release_date: releaseDate?.slice(0, 10) ?? "",
+                }}
+              />
               {trailer && (
                 <a
                   href={`https://www.youtube.com/watch?v=${trailer.key}`}
